@@ -1,4 +1,4 @@
 <h3>Home</h3>
 <p>Welcome to the home of <%= @owner.name %>.</p>
-<p>I was born on <%= @owner.birthdate %>.</p>
+<p>I was born on <%= @owner.birthdate.strftime("%A, %e %B %Y") %>.</p>
 <p>Only <%= @owner.countdown %> days until my birthday!</p>
