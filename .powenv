@@ -21,4 +21,3 @@ else
 fi
 
 # Environment Variables
-export GMAIL_USERNAME="mrbooth@gmail.com"
