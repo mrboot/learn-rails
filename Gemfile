@@ -7,18 +7,18 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
-
-group :development, :test do
-  gem 'byebug'
-  gem 'web-console', '~> 2.0'
-  gem 'spring'
-end
-
 gem 'foundation-rails'
 gem 'gibbon'
 gem 'google_drive'
 gem 'high_voltage'
 gem 'simple_form'
+
+group :development, :test do
+  gem 'sqlite3'
+  gem 'byebug'
+  gem 'web-console', '~> 2.0'
+  gem 'spring'
+end
 
 group :development do
   gem 'better_errors'
@@ -26,6 +26,8 @@ group :development do
   gem 'rails_layout'
 end
 
-group :development, :test do
-  gem 'sqlite3'
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+  gem 'thin'
 end
