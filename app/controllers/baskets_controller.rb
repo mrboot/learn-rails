@@ -37,7 +37,7 @@ class BasketsController < ApplicationController
       # else
         format.html { render :new }
         format.json { render json: @basket.errors, status: :unprocessable_entity }
-        # format.xml  { render xml: @bskt_resp }
+        format.xml  { render xml: @bskt_resp }
         # format.xml  { render :new }
       # end
     end
