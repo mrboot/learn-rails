@@ -22,6 +22,16 @@ class BasketsController < ApplicationController
   def edit
   end
 
+  def genxml
+
+    xml = request.body.read
+    @bskt_resp = Hash.from_xml(xml)
+
+    respond_to do |format|
+      format.xml
+    end
+  end
+
   # POST /baskets
   # POST /baskets.json
   def create
