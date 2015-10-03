@@ -28,6 +28,8 @@ class BasketsController < ApplicationController
     @raw_xml = xml
     @bskt_resp = Hash.from_xml(xml)
 
+    UserMailer.basket_response_email(@bskt_resp).deliver
+
     respond_to do |format|
       format.xml
     end
