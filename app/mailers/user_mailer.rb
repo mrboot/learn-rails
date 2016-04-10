@@ -1,4 +1,6 @@
 class UserMailer < ApplicationMailer
+  # Need to have this in here so that the mailer can use teh helper
+  add_template_helper(BasketsHelper)
 
   default from: "do-not-reply@example.com"
 
@@ -10,9 +12,9 @@ class UserMailer < ApplicationMailer
 
   def basket_response_email(response)
     @response = response
-    # mail(to: Rails.application.secrets.owner_email, :subject => "Basket response")
-    mail(to: ["mark.booth@civica.co.uk",
-              Rails.application.secrets.owner_email], :subject => "Basket response")
+    mail(to: Rails.application.secrets.owner_email, :subject => "Basket response")
+    # mail(to: ["mark.booth@civica.co.uk", Rails.application.secrets.owner_email],
+    #      subject: "Basket response")
   end
 
 end

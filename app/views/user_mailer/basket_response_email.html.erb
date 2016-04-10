@@ -5,41 +5,6 @@
   </head>
   <body>
     <h1>Payment Notification Email</h1>
-    <% if @response["NotificationMessage"]["RequestStatus"] = "Accepted" %>
-
-      <h2>Payment Reference: <%= @response["NotificationMessage"]["CallingApplicationTransReference"] %></h2>
-      <p>
-        The following items have been processed for basket reference: <%= @response["NotificationMessage"]["BasketReference"] %>:
-      </p>
-
-      <% if @response["NotificationMessage"]["ListItems"]["ListItem"].is_a?(Array) %>
-
-        <% @response["NotificationMessage"]["ListItems"]["ListItem"].each_with_index do |item, index| %>
-          <p>
-            <h3>Item <%= index + 1 %></h3>
-          </p>
-          <% item.each do |key, value| %>
-            <p>
-              <%= key %> = <%= value %>
-            </p>
-          <% end %>
-        <% end %>
-      <% else %>
-        <p>
-          <h3>Item 1</h3>
-        </p>
-        <% @response["NotificationMessage"]["ListItems"]["ListItem"].each do |key, value| %>
-          <p>
-            <%= key %> = <%= value %>
-          </p>
-        <% end %>
-      <% end %>
-
-    <% else %>
-
-      <h2>The Payment Failed</h2>
-
-    <% end %>
-
+    <%= message_format(@response) %>
   </body>
 </html>
