@@ -28,7 +28,17 @@ class BasketsController < ApplicationController
     @raw_xml = xml
     @bskt_resp = Hash.from_xml(xml)
 
-    UserMailer.basket_response_email(@bskt_resp).deliver
+    # UserMailer.basket_response_email(@bskt_resp).deliver
+
+    if @bskt_resp.has_key?("NotificationMessage")
+      if @bskt_resp["NotificationMessage"]["ListItems"]["ListItem"].is_a?(Array)
+        UserMailer.full_basket_response_email(@bskt_resp).deliver
+      else
+        UserMailer.single_basket_response_email(@bskt_resp).deliver
+      end
+    else
+      UserMailer.item_response_email(@bskt_resp).deliver
+    end
 
     respond_to do |format|
       format.xml

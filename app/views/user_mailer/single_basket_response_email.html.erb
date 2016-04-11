@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Basket Notification Email</h1>
+    <% if @response["NotificationMessage"]["RequestStatus"] = "Accepted" %>
+      <h2>Payment Reference: <%= @response["NotificationMessage"]["CallingApplicationTransReference"] %></h2>
+      <p>
+        The following item has been processed for basket reference: <%= @response["NotificationMessage"]["BasketReference"] %>:
+      <p>
+        <h3>Item:</h3>
+      </p>
+      <% @response["NotificationMessage"]["ListItems"]["ListItem"].each do |key, value| %>
+        <p>
+          <%= key %> = <%= value %>
+        </p>
+      <% end %>
+    <% else %>
+      <h2>The Payment Failed</h2>
+    <% end %>
+  </body>
+</html>
