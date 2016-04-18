@@ -5,10 +5,20 @@
   </head>
   <body>
     <h1>Payment Item Notification Email</h1>
-    <% @response.each do |key, value| %>
+    <% if @response["ItemNotificationMessage"]["RequestStatus"] = "Accepted" %>
+      <h2>Payment Reference: <%= @response["ItemNotificationMessage"]["CallingApplicationTransReference"] %></h2>
       <p>
-        <%= key %> = <%= value %>
+        The following item has been processed for basket reference: <%= @response["ItemNotificationMessage"]["BasketReference"] %>:
+      <p>
+        <h3>Item:</h3>
       </p>
+      <% @response["ItemNotificationMessage"]["Item"].each do |key, value| %>
+        <p>
+          <%= key %> = <%= value %>
+        </p>
+      <% end %>
+    <% else %>
+      <h2>The Payment Failed</h2>
     <% end %>
   </body>
 </html>
