@@ -28,7 +28,7 @@ class UserMailer < ApplicationMailer
     @response = response
     # mail(to: Rails.application.secrets.owner_email, :subject => "Item response")
     mail(to: ["mark.booth@civica.co.uk", Rails.application.secrets.owner_email],
-         subject: "Basket response")
+         subject: "Item response")
   end
 
 end
