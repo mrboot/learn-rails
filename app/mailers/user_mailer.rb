@@ -12,23 +12,23 @@ class UserMailer < ApplicationMailer
 
   def full_basket_response_email(response)
     @response = response
-    mail(to: Rails.application.secrets.owner_email, :subject => "Basket response")
-    # mail(to: ["mark.booth@civica.co.uk", Rails.application.secrets.owner_email],
-    #      subject: "Basket response")
+    # mail(to: Rails.application.secrets.owner_email, :subject => "Basket response")
+    mail(to: ["mark.booth@civica.co.uk", Rails.application.secrets.owner_email],
+         subject: "Basket response")
   end
 
   def single_basket_response_email(response)
     @response = response
-    mail(to: Rails.application.secrets.owner_email, :subject => "Basket response")
-    # mail(to: ["mark.booth@civica.co.uk", Rails.application.secrets.owner_email],
-    #      subject: "Basket response")
+    # mail(to: Rails.application.secrets.owner_email, :subject => "Basket response")
+    mail(to: ["mark.booth@civica.co.uk", Rails.application.secrets.owner_email],
+         subject: "Basket response")
   end
 
   def item_response_email(response)
     @response = response
-    mail(to: Rails.application.secrets.owner_email, :subject => "Item response")
-    # mail(to: ["mark.booth@civica.co.uk", Rails.application.secrets.owner_email],
-    #      subject: "Basket response")
+    # mail(to: Rails.application.secrets.owner_email, :subject => "Item response")
+    mail(to: ["mark.booth@civica.co.uk", Rails.application.secrets.owner_email],
+         subject: "Basket response")
   end
 
 end
