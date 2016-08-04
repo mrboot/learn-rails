@@ -1,4 +1,4 @@
-require 'google_drive_v0'
+require 'google_drive'
 
 class Contact
 
