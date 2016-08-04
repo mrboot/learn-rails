@@ -2,7 +2,7 @@ class UserMailer < ApplicationMailer
   # Need to have this in here so that the mailer can use the helper
   add_template_helper(BasketsHelper)
 
-  default from: "do-not-reply@example.com"
+  default from: "do-not-reply@mbmakes.com"
 
   def contact_email(contact)
     @contact = contact
