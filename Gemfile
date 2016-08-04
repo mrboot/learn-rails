@@ -7,11 +7,12 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
-gem 'foundation-rails'
+gem 'foundation-rails', '~> 5.5'
 gem 'gibbon'
 gem 'google_drive'
 gem 'high_voltage'
 gem 'simple_form'
+gem 'mailgunner', '~> 2.4'
 
 group :development, :test do
   gem 'sqlite3'
